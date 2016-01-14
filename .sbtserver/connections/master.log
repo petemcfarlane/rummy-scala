@@ -1,0 +1,31 @@
+New log file opened at Wed Jan 13 17:26:11 GMT 2016 by 16234@Petes-MacBook-Pro-2.local
+Taking next connection to: 59892
+New client attempting to connect on port: 59893-59892
+  Address = /192.168.99.1:59892
+This client on port 59893 has uuid cd41753f-a86f-4968-b8e8-1d0650237eb8 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-cd41753f-a86f-4968-b8e8-1d0650237eb8
+Taking next connection to: 59892
+New client attempting to connect on port: 59894-59892
+  Address = /192.168.99.1:59892
+Handshake exception on socket: 59894
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 59892
+New client attempting to connect on port: 59895-59892
+  Address = /192.168.99.1:59892
+This client on port 59895 has uuid d9b22062-f8b6-4f3d-8b55-91e0f6c3b440 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-cd41753f-a86f-4968-b8e8-1d0650237eb8, activator-d9b22062-f8b6-4f3d-8b55-91e0f6c3b440
+Taking next connection to: 59892
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 16234@Petes-MacBook-Pro-2.local logs at Wed Jan 13 17:29:11 GMT 2016, goodbye.
