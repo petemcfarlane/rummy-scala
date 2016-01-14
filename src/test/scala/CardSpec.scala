@@ -6,7 +6,7 @@ class CardSpec extends Specification {
     "should have a value" >> {
       card.value must_=== "2"
     }
-    "should have a suit" >> {
+    "and a suit" >> {
       card.suit must_=== "H"
     }
     "must have a valid suit, H, C, S or D" >> {
