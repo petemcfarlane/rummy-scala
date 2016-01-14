@@ -15,7 +15,7 @@ class GameSpec extends Specification{
     "the discarded pile should have one card" >> {
       game.discarded.length must_== 1
     }
-    "the deck should contain the remaining cards" >> {
+    "the deck should contain the remaining cards." >> {
       game.deck.length must_== 52 - 7 - 7 - 1
     }
   }

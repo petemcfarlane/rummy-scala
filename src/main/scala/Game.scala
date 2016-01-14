@@ -3,13 +3,16 @@ class Game(val players: Player*) {
   var discarded: List[Card] = List()
 
   def deal() {
-    (1 to 7).foreach(c => {
+    (1 to 7).foreach(_ => {
       players.foreach(p => {
-        val (card, d) = deck.deal
-        p.dealtCard(card)
-        deck = d
+        deck.deal match {
+          case (card, remaining) => p.dealtCard(card.get); deck = remaining
+        }
       })
     })
+    deck.deal match {
+      case (card, remaining) => discarded = card.get :: discarded; deck = remaining
+    }
   }
 
   deal()
