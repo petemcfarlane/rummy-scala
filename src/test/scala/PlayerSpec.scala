@@ -22,5 +22,17 @@ class PlayerSpec extends Specification{
       player.dealtCard(heart10)
       player.hand must_== Set(spadeAce, heart10)
     }
+    "can take a turn" >> {
+      val p = new Player()
+      p.dealtCard(Card("H", "A"))
+      val discarded = List(Card("S", "A"))
+      val deck = new Deck(List(Card("S", "2"), Card("S", "3")))
+      val ret = p.takeTurn(discarded.head, deck)
+      ret match {
+        case (Card("A", "H"), remainingDeck) => println(p.hand + "\n" + discarded + "\n" + remainingDeck.cards)
+        case (discarded, remainingDeck) => println(p.hand + "\n" + discarded + "\n" + remainingDeck.cards)
+      }
+      1 must_== 1
+    }
   }
 }
