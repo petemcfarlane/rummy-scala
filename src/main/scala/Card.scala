@@ -1,4 +1,4 @@
-class Card(s: String, v: String) {
+case class Card(s: String, v: String) {
   val suit = s match {
     case "H" => "H"
     case "C" => "C"
