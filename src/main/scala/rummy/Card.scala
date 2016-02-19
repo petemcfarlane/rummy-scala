@@ -27,18 +27,11 @@ case class Card(s: String, v: String) {
   }
 
   override def toString = {
-    def valueName = this.value match {
-      case "J" => "Jack"
-      case "Q" => "Queen"
-      case "K" => "King"
-      case "A" => "Ace"
-      case _ => this.value
-    }
     this.suit match {
-      case "H" => valueName + " of Hearts"
-      case "C" => valueName + " of Clubs"
-      case "S" => valueName + " of Spades"
-      case "D" => valueName + " of Diamonds"
+      case "H" => value + "♥"
+      case "C" => value + "♣"
+      case "S" => value + "♠"
+      case "D" => value + "♦"
     }
   }
 }

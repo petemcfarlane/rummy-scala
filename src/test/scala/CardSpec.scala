@@ -26,10 +26,10 @@ class CardSpec extends Specification {
       Card("H", "11") must throwAn[IllegalArgumentException]
     }
     "can be represented as a string" >> {
-      Card("H", "2").toString must_=== "2 of Hearts"
-      Card("D", "10").toString must_=== "10 of Diamonds"
-      Card("C", "J").toString must_=== "Jack of Clubs"
-      Card("S", "A").toString must_=== "Ace of Spades"
+      Card("H", "2").toString must_=== "2♥"
+      Card("D", "10").toString must_=== "10♦"
+      Card("C", "J").toString must_=== "J♣"
+      Card("S", "A").toString must_=== "A♠"
     }
   }
 }
