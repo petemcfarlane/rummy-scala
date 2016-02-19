@@ -1,8 +1,8 @@
+package rummy
+
 import scala.util.Random
 
-class Player(val name: String) {
-  def this() = this(List("Spud", "Talus", "Shrimp", "Scrappie", "Oxyroid", "Isuk")(Random.nextInt(6)))
-
+case class Player(val name: String) {
   override def toString = name
 
   type Hand = Set[Card]
@@ -22,7 +22,7 @@ class Player(val name: String) {
       }
     }
 
-    if (canMeld(hand)) {
+    if (Meld.aWinningCombinationExists(hand)) {
       // win the game
     }
 
@@ -32,9 +32,9 @@ class Player(val name: String) {
     (cardToDiscard, remaining)
   }
 
-  private def wantsCard(card: Card): Boolean = canMeld(hand + card)
+  def wantsCard(card: Card): Boolean =
+    Meld.aWinningCombinationExists(hand + card)
 
-  private def canMeld(hand: Hand): Boolean = false
-
-  private def chooseCardToDiscard = hand.toList(Random.nextInt(hand.size))
+  private def chooseCardToDiscard =
+    hand.toList(Random.nextInt(hand.size))
 }

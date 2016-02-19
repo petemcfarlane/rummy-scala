@@ -1,9 +1,10 @@
 import org.specs2.mutable.Specification
+import rummy.{Game, Player}
 
 class GameSpec extends Specification{
   "A game" >> {
-    val p1: Player = new Player
-    val p2: Player = new Player
+    val p1: Player = Player("Bob")
+    val p2: Player = Player("Ben")
     val game = new Game(p1, p2)
     "starts with 2 to 4 players" >> {
       game.players.length must_== 2

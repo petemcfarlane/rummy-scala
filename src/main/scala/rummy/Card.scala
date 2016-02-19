@@ -1,3 +1,5 @@
+package rummy
+
 case class Card(s: String, v: String) {
   val suit = s match {
     case "H" => "H"

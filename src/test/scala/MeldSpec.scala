@@ -1,4 +1,5 @@
 import org.specs2.mutable.Specification
+import rummy.{Meld, Card}
 
 class MeldSpec extends Specification {
   "Determines if a hand can meld" >> {
@@ -39,9 +40,12 @@ class MeldSpec extends Specification {
         Set(Card("S","2"), Card("S","3"), Card("S","4"), Card("S","5")),
         Set(Card("S","7"), Card("S","8"), Card("S","9")))
     }
-
     "can say if a given hand can meld or not" >> {
       Meld(hand) must_== true
+    }
+    "can say if a winning combination exists from an arbitrary sized hand" >> {
+      Meld.aWinningCombinationExists(Set(Card("H","2"), Card("S","2"), Card("D","2"), Card("C","2"), Card("H","6"), Card("D","6"), Card("C","5"))) must_== false
+      Meld.aWinningCombinationExists(Set(Card("H","2"), Card("S","2"), Card("D","2"), Card("C","2"), Card("H","6"), Card("D","6"), Card("C","6"))) must_== true
     }
   }
 }

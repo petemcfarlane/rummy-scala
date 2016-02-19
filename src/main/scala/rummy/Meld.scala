@@ -1,3 +1,5 @@
+package rummy
+
 object Meld {
 
   def apply(hand: Set[Card]): Boolean = findFirstWinningMelds(hand) match {
@@ -42,4 +44,7 @@ object Meld {
       case _ => false
     }
   }
+
+  def aWinningCombinationExists(hand: Set[Card]): Boolean =
+    hand.toList.combinations(7).exists((h) => Meld(h.toSet))
 }

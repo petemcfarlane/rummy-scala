@@ -1,3 +1,5 @@
+package rummy
+
 class Game(val players: Player*) {
   var deck: Deck = new Deck
   var discarded: List[Card] = List()
@@ -16,4 +18,10 @@ class Game(val players: Player*) {
   }
 
   deal()
+
+//  def takeTurn() = {
+//    players(0).takeTurn(discarded.head, deck) match {
+//      case (c: rummy.Card, d: rummy.Deck) => discarded = c :: discarded; deck = d
+//    }
+//  }
 }

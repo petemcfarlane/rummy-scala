@@ -1,3 +1,5 @@
+package rummy
+
 import scala.util.Random
 
 class Deck(val cards: List[Card]) {

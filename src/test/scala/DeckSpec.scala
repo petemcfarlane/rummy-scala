@@ -1,4 +1,5 @@
 import org.specs2.mutable.Specification
+import rummy.{Card, Deck}
 
 class DeckSpec extends Specification{
   "A deck" >> {
