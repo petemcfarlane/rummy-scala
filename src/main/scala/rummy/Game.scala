@@ -45,19 +45,21 @@ object Game {
       //      println("Cards in deck: (" + g.deck.cards.size + ") " + g.deck.cards.mkString(", ") + "\n")
       EventStore.record(new PlayerEvaluatesHand)
 
-      println("Do you want to take an unknown card [1] or the last discarded card [2]?\n")
+      println("Do you want to take an unknown card [1] or the last discarded card (" + g.discarded.head + ") [2]?\n")
       readInt() match {
         case 1 => g.deck = player.takeUnknownCard(g.deck)
         case 2 => player.takeLastDiscardedCard(g.discarded)
         case _ => throw new RuntimeException("Invalid input!")
       }
 
+      println("Your current hand looks like: " + player.hand.mkString(", ") + "\n")
+
       println("Which card do you want to discard?\n")
-      val indexedCards = player.hand.toIndexedSeq.zipWithIndex
+      val indexedCards = player.hand.toIndexedSeq.zipWithIndex.map(t => (t._1, t._2 + 1))
       indexedCards.foreach {
         case (c, i) => println(f"[$i] $c")
       }
-      val card = indexedCards(readInt())._1
+      val card = indexedCards(readInt() - 1)._1
       g.discarded = player.discard(card) :: g.discarded
       println("\nDiscarded: " + card + "\n")
     }
